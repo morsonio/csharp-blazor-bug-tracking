@@ -1,6 +1,11 @@
 ﻿<h3>All Bugs</h3>
 
+<table>
+
+</table>
+
 @code {
+
     [Inject]
     public IBugService BugService { get; set; }
 
@@ -8,8 +13,7 @@
 
     protected override void OnInitialized()
     {
-        Bugs = BugService.GetBugs();
-        base.OnInitialized();
+        Bugs = BugService.GetBugs().OrderBy(x=>x.Priority).ToList();
     }
 
 }
